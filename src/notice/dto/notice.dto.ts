@@ -1,9 +1,11 @@
-import { IsString, IsUrl } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsNumberString } from 'class-validator';
 
 export class NoticeDto {
-  @IsUrl()
-  url: string;
+  @IsNotEmpty()
+  @IsNumberString()
+  readonly id: string;
 
+  @IsOptional()
   @IsString()
-  selector: string;
+  readonly keyword?: string; 
 }
