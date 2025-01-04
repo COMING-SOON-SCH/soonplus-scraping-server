@@ -3,9 +3,14 @@ import { IsString, IsNotEmpty, IsOptional, IsNumberString } from 'class-validato
 export class NoticeDto {
   @IsNotEmpty()
   @IsNumberString()
-  readonly id: string;
+  readonly id: string; 
 
   @IsOptional()
   @IsString()
   readonly keyword?: string; 
+
+  constructor(id: string, keyword?: string) {
+    this.id = id;
+    this.keyword = keyword; 
+  }
 }
